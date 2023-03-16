@@ -1,5 +1,5 @@
-import { Request, Response } from "express"
-import { handleHttp } from "../utils/error.handle"
+import { Request, Response } from "express";
+import { handleHttp } from "../utils/error.handle";
 
 const getBooking = (req: Request, res: Response) => {
     try {

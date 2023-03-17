@@ -1,21 +1,11 @@
-import { Router } from "express";
-import { readdirSync } from 'fs';
+import { routerBookings } from "./bookings";
+import { routerRooms } from "./rooms";
+import { routerUsers } from "./users";
+import { routerLogin } from "./login";
 
-const PATH_ROUTER = `${__dirname}`;
-const router = Router();
-
-const cleanFileName = (filename: string): string | undefined => {
-    const file = filename.split('.').shift();
-    return file;
+export {
+    routerBookings,
+    routerRooms,
+    routerUsers,
+    routerLogin
 }
- 
-readdirSync(PATH_ROUTER).filter((filename) => {
-    const cleanName = cleanFileName(filename);
-    if (cleanName !== "index") {
-        import(`./${cleanName}`).then((moduleRouter) => {
-            router.use(`/${cleanName}`, moduleRouter.router)
-        })
-    }
-})
-
-export { router };

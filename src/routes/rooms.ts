@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { getRoom, getRooms, postRoom, updateRoom, deleteRoom } from '../controllers/rooms'
 
-const router = Router();
+const routerRooms = Router();
 
-router.get('/', getRooms);
-router.get("/:bookingid", getRoom);
-router.post("/", postRoom);
-router.put("/:bookingid", updateRoom);
-router.delete("/:bookingid", deleteRoom);
+routerRooms.get('/', getRooms);
+routerRooms.get("/:roomid", getRoom);
+routerRooms.post("/", postRoom);
+routerRooms.put("/:roomid", updateRoom);
+routerRooms.delete("/:roomid", deleteRoom);
 
-export { router };
+export { routerRooms };

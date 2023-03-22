@@ -1,3 +1,4 @@
+import 'dotenv/config';
 const mysql = require('mysql');
 const connection = mysql.createConnection({
     host: process.env.HOST,
@@ -6,10 +7,13 @@ const connection = mysql.createConnection({
     database: process.env.DB_NAME
 })
 
-connection.connect((error: any) => {
-    if (error) {
-        console.error('Error connecting to MySql database: ' + error.stack)
-        return;
-    }
-    console.log('Connected to MySql database with connection ID ' + connection.threadId);
-})
+export const dbQuery = (query: string, params: any) => {
+    return new Promise((resolve, reject) => {
+        connection.query(query, params, (error: any, result: any) => {
+            if (error) reject(error);
+            resolve(result);
+        })
+    })
+}
+
+export default connection;

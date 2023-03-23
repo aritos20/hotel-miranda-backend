@@ -1,6 +1,9 @@
+DROP TABLE bookings;
+DROP TABLE rooms;
+DROP TABLE users;
+
 CREATE TABLE bookings(
-    id INT NOT NULL AUTO_INCREMENT,
-    booking_id INT NOT NULL,
+    booking_id INT NOT NULL AUTO_INCREMENT,
     guest_name varchar(255) NOT NULL,
     guest_picture varchar(500) NOT NULL,
     order_date DATETIME NOT NULL,
@@ -26,10 +29,9 @@ CREATE TABLE rooms (
 );
 
 CREATE TABLE users (
-    id INT NOT NULL AUTO_INCREMENT,
+    user_id INT NOT NULL AUTO_INCREMENT,
     pass varchar(300) NOT NULL,
     user_picture varchar(500) NOT NULL,
-    user_id INT NOT NULL,
     joined_date DATETIME NOT NULL,
     job_description varchar(500) NOT NULL,
     phone_number varchar(40) NOT NULL,

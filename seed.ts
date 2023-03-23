@@ -1,9 +1,9 @@
+import bcrypt from "bcrypt";
 import { faker } from '@faker-js/faker';
 import connection, { dbQuery } from './src/database/connection';
 import { Bookings } from './src/interfaces/fakerBooking.interface';
 import { Rooms } from './src/interfaces/fakerRooms.interface';
 import { Users } from './src/interfaces/fakerUsers.interface';
-import bcrypt from "bcrypt";
 
 const run = async (): Promise<void> => {
     await connection.connect();
@@ -13,10 +13,19 @@ const run = async (): Promise<void> => {
     await connection.end();
 }
 
+// let notDuplicated: Array<number> = [];
+
+// const notDuplicateId = (indexForRandom: number): number => {
+//     let randomNumber: number = faker.datatype.number(indexForRandom);
+//     if (notDuplicated.some(element => element === randomNumber))
+//         notDuplicateId(indexForRandom);
+//     notDuplicated = [];
+//     return randomNumber;
+// }
+
 const createRandomBookings = async (numberOfBookings: number): Promise<void> => {
     for(let i = 0; i < numberOfBookings; i++) {
         const bookingObj: Bookings = await {
-            booking_id: faker.datatype.number(1000),
             guest_name: faker.name.fullName(),
             guest_picture: faker.image.avatar(),
             order_date: faker.datatype.datetime(),
@@ -51,7 +60,6 @@ const createRandomUsers = async (numberOfUsers: number): Promise<void> => {
         const usersObj: Users = await {
             pass: bcrypt.hashSync(faker.internet.password(), 6),
             user_picture: faker.image.avatar(),
-            user_id: faker.datatype.number(500),
             joined_date: faker.datatype.datetime(),
             job_description: faker.name.jobDescriptor(),
             phone_number: faker.phone.number('+## ### ### ###'),

@@ -1,5 +1,4 @@
 export interface Bookings {
-    booking_id: number;
     guest_name: string;
     guest_picture: string;
     order_date: Date;

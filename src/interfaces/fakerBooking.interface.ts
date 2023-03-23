@@ -7,5 +7,5 @@ export interface Bookings {
     check_out: Date;
     special_request: string;
     room_type: string;
-    room_status: string;
+    room_status: number;
 }

@@ -26,7 +26,7 @@ const getBookings = async (req: Request, res: Response, next: NextFunction): Pro
 const updateBooking = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         await dbQuery('UPDATE bookings SET ? WHERE booking_id = ?;', [req.body, req.params.bookingid]);
-        res.json({success: true, message: 'booking update succesfully', booking: req.body});
+        res.json({success: true, message: 'booking update succesfully'});
     } catch(e) {
         next(e);
         handleHttp(res, 'ERROR_UPDATE_BOOKING');
@@ -35,8 +35,8 @@ const updateBooking = async (req: Request, res: Response, next: NextFunction): P
 
 const postBooking = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-        await dbQuery('INSERT INTO bookings SET ?', req.body);
-        res.json({success: true, message: 'booking succesfully done', booking: req.body});
+        await dbQuery('INSERT INTO bookings SET ?;', req.body);
+        res.json({success: true, message: 'booking succesfully done'});
     } catch(e) {
         next(e);
         handleHttp(res, 'ERROR_POST_BOOKING');
@@ -45,7 +45,7 @@ const postBooking = async (req: Request, res: Response, next: NextFunction): Pro
 
 const deleteBooking = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-        await dbQuery('DELETE FROM bookings WHERE booking_id = ?;', req.params.bookingid)
+        await dbQuery('DELETE FROM bookings WHERE booking_id = ?;', req.params.bookingid);
         res.json({success: true, message: 'booking deleted'});
     } catch(e) {
         next(e);

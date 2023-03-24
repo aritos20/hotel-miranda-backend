@@ -13,16 +13,6 @@ const run = async (): Promise<void> => {
     await connection.end();
 }
 
-// let notDuplicated: Array<number> = [];
-
-// const notDuplicateId = (indexForRandom: number): number => {
-//     let randomNumber: number = faker.datatype.number(indexForRandom);
-//     if (notDuplicated.some(element => element === randomNumber))
-//         notDuplicateId(indexForRandom);
-//     notDuplicated = [];
-//     return randomNumber;
-// }
-
 const createRandomBookings = async (numberOfBookings: number): Promise<void> => {
     for(let i = 0; i < numberOfBookings; i++) {
         const bookingObj: Bookings = await {

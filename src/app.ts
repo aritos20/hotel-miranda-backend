@@ -16,3 +16,4 @@ app.use('/rooms', passport.authenticate("jwt", { session: false }), routerRooms)
 app.use('/users', passport.authenticate("jwt", { session: false }), routerUsers);
 
 app.listen(PORT, () => console.log(`Listo por el puerto ${PORT}`));
+

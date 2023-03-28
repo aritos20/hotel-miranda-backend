@@ -1,5 +1,4 @@
-import mongoose from 'mongoose';
-import { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import { Bookings } from '../../interfaces/booking.interface';
 
 const bookingSchema = new Schema<Bookings>({
@@ -14,4 +13,4 @@ const bookingSchema = new Schema<Bookings>({
     room_status: Boolean,
 });
 
-export const bookingModel = mongoose.model('Bookings', bookingSchema);
+export const bookingModel = mongoose.model('bookings', bookingSchema);

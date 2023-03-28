@@ -1,5 +1,4 @@
-import mongoose from 'mongoose';
-import { Schema } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import { Rooms } from '../../interfaces/room.interface';
 
 const roomSchema = new Schema<Rooms>({
@@ -14,4 +13,4 @@ const roomSchema = new Schema<Rooms>({
     room_status: Boolean
 });
 
-export const roomModel = mongoose.model('Rooms', roomSchema);
+export const roomModel = mongoose.model('rooms', roomSchema);

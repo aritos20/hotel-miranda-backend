@@ -10,9 +10,11 @@ import { userModel } from "./src/database/Models/userSchema";
 
 const exec = async (): Promise<void> => {
     await connect();
-    await createRandomBookings(30);
-    await createRandomRooms(15);
-    await createRandomUsers(10);
+    //await createRandomBookings(30);
+    //await createRandomRooms(15);
+    //await createRandomUsers(10);
+    const booking = await bookingModel.find();
+    console.log(booking);
     await disconnect();
 }
 

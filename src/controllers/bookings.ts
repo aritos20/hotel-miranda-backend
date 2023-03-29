@@ -6,7 +6,7 @@ import { connect, disconnect } from "../database/connection";
 const getBooking = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         await connect();
-        const booking = await bookingModel.findOne({ id:`${req.params.bookingid}`});
+        const booking = await bookingModel.findOne({ id: `${req.params.bookingid}` });
         await disconnect();
         res.json({ success: true, data: booking });
     } catch(e) {
@@ -30,7 +30,7 @@ const getBookings = async (_req: Request, res: Response, next: NextFunction): Pr
 const updateBooking = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         await connect();
-        await bookingModel.findOneAndUpdate({id:`${req.params.bookingid}`}, req.body);
+        await bookingModel.findOneAndUpdate({ id: `${req.params.bookingid}` }, req.body);
         await disconnect();
         res.json({ success: true, data: req.params.bookingid });
     } catch(e) {
@@ -57,7 +57,7 @@ const postBooking = async (req: Request, res: Response, next: NextFunction): Pro
 const deleteBooking = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         await connect();
-        await bookingModel.findOneAndDelete({id:`${req.params.bookingid}`});
+        await bookingModel.findOneAndDelete({ id: `${req.params.bookingid}` });
         await disconnect();
         res.json({ success: true, data: req.params.bookingid });
     } catch(e) {

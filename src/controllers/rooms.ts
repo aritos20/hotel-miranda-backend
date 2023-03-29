@@ -6,7 +6,7 @@ import { roomModel } from "../database/Models/roomSchema";
 const getRoom = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         await connect();
-        const room = await roomModel.findOne({ id:`${req.params.roomid}`});
+        const room = await roomModel.findOne({ id: `${req.params.roomid}` });
         await disconnect();
         res.json({ success: true, data: room });
     } catch(e) {
@@ -30,7 +30,7 @@ const getRooms = async (_req: Request, res: Response, next: NextFunction): Promi
 const updateRoom = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         await connect();
-        await roomModel.findOneAndUpdate({id: `${req.params.roomid}`}, req.body);
+        await roomModel.findOneAndUpdate({ id: `${req.params.roomid}` }, req.body);
         await disconnect();
         res.json({ success: true, data: req.params.roomid });
     } catch(e) {
@@ -57,7 +57,7 @@ const postRoom = async (req: Request, res: Response, next: NextFunction): Promis
 const deleteRoom = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         await connect();
-        await roomModel.findOneAndDelete({id: `${req.params.roomid}`});
+        await roomModel.findOneAndDelete({ id: `${req.params.roomid}` });
         await disconnect();
         res.json({ success: true, data: req.params.roomid });
     } catch(e) {

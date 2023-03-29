@@ -8,19 +8,19 @@ const getBooking = async (req: Request, res: Response, next: NextFunction): Prom
         await connect();
         const booking = await bookingModel.findOne({ id:`${req.params.bookingid}`});
         await disconnect();
-        res.json(booking);
+        res.json({ success: true, data: booking });
     } catch(e) {
         next(e);
         handleHttp(res, 'ERROR_GET_BOOKING');
     }
 }
 
-const getBookings = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+const getBookings = async (_req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
         await connect();
         const bookings = await bookingModel.find();
         await disconnect();
-        res.json(bookings);
+        res.json({ success: true, data: bookings });
     } catch(e) {
         next(e);
         handleHttp(res, 'ERROR_GET_BOOKINGS');
@@ -32,7 +32,7 @@ const updateBooking = async (req: Request, res: Response, next: NextFunction): P
         await connect();
         await bookingModel.findOneAndUpdate({id:`${req.params.bookingid}`}, req.body);
         await disconnect();
-        res.json({success: true});
+        res.json({ success: true, data: req.params.bookingid });
     } catch(e) {
         next(e);
         handleHttp(res, 'ERROR_UPDATE_BOOKING');
@@ -47,7 +47,7 @@ const postBooking = async (req: Request, res: Response, next: NextFunction): Pro
         req.body.id = idForNewBooking[0].id + 1;
         await bookingModel.create(req.body);
         await disconnect();
-        res.json({success: true})
+        res.json({ success: true, data: req.body });
     } catch(e) {
         next(e);
         handleHttp(res, 'ERROR_POST_BOOKING');
@@ -59,7 +59,7 @@ const deleteBooking = async (req: Request, res: Response, next: NextFunction): P
         await connect();
         await bookingModel.findOneAndDelete({id:`${req.params.bookingid}`});
         await disconnect();
-        res.json({success: true});
+        res.json({ success: true, data: req.params.bookingid });
     } catch(e) {
         next(e);
         handleHttp(res, 'ERROR_DELETE_BOOKING');

@@ -10,16 +10,19 @@ import { userModel } from "./src/database/Models/userSchema";
 
 const exec = async (): Promise<void> => {
     await connect();
-    //await createRandomBookings(30);
-    //await createRandomRooms(15);
-    //await createRandomUsers(10);
-    const booking = await bookingModel.find();
-    console.log(booking);
+    await createRandomBookings(30);
+    await createRandomRooms(15);
+    await createRandomUsers(10);
     await disconnect();
 }
 
 const createRandomBookings = async (bookingsNumber: number): Promise<void> => {
     let bookingsArr: Array<Bookings> = [];
+
+    if (bookingModel) {
+        await bookingModel.deleteMany();
+    }
+
     for(let i: number = 0; i < bookingsNumber; i++) {
         const bookingObj: Bookings = await {
             id: i + 1,
@@ -39,6 +42,11 @@ const createRandomBookings = async (bookingsNumber: number): Promise<void> => {
 
 const createRandomRooms = async (roomsNumber: number): Promise<void> => {
     let roomsArr: Array<Rooms> = [];
+
+    if (roomModel) {
+        await roomModel.deleteMany();
+    }
+
     for(let i: number = 0; i < roomsNumber; i++) {
         const roomObj: Rooms = await {
             id: i + 1,
@@ -58,6 +66,11 @@ const createRandomRooms = async (roomsNumber: number): Promise<void> => {
 
 const createRandomUsers = async (usersNumber: number): Promise<void> => {
     let usersArr: Array<Users> = [];
+
+    if (userModel) {
+        await userModel.deleteMany();
+    }
+
     for(let i: number = 0; i < usersNumber; i++) {
         const usersObj: Users = await {
             id: i + 1,

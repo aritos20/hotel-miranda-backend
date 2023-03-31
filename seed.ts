@@ -51,7 +51,6 @@ const createRandomRooms = async (roomsNumber: number): Promise<void> => {
         const roomObj: Rooms = await {
             id: i + 1,
             picture: 'https://unsplash.com/es/fotos/67-sOi7mVIk',
-            room_id: faker.datatype.number(20),
             room_type: faker.company.catchPhraseDescriptor(),
             room_floor: 'Floor A-1',
             amenities: 'AC, Shower, Double Bed, Towel, Bathup, Coffee Set, LED TV, Wifi',

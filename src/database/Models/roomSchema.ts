@@ -4,7 +4,6 @@ import { Rooms } from '../../interfaces/room.interface';
 const roomSchema = new Schema<Rooms>({
     id: Number,
     picture: String,
-    room_id: Number,
     room_type: String,
     room_floor: String,
     amenities: String,

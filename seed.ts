@@ -70,10 +70,23 @@ const createRandomUsers = async (usersNumber: number): Promise<void> => {
         await userModel.deleteMany();
     }
 
-    for(let i: number = 0; i < usersNumber; i++) {
+    const usersObj: Users = await {
+        id: 1,
+        pass: bcrypt.hashSync("admin", 6),
+        username: "admin",
+        user_picture: faker.image.avatar(),
+        joined_date: faker.datatype.datetime(),
+        job_description: faker.name.jobDescriptor(),
+        phone_number: faker.phone.number('+## ### ### ###'),
+        email: "admin@admin.com"
+    }
+    usersArr.push(usersObj);
+    
+    for(let i: number = 1; i < usersNumber; i++) {
         const usersObj: Users = await {
             id: i + 1,
             pass: bcrypt.hashSync(faker.internet.password(), 6),
+            username: faker.name.firstName(),
             user_picture: faker.image.avatar(),
             joined_date: faker.datatype.datetime(),
             job_description: faker.name.jobDescriptor(),

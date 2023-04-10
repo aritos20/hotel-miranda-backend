@@ -4,6 +4,7 @@ import { Users } from '../../interfaces/user.interface';
 const userSchema = new Schema<Users>({
     id: Number,
     pass: String,
+    username: String,
     user_picture: String,
     joined_date: String,
     job_description: String,

@@ -19,7 +19,7 @@ export const loginCtrl = async (req: Request, res: Response, next: NextFunction)
                         if (error) return next(error);
                         
                         const body = { _id: user._id, email: user.email };
-                        const token = jwt.sign({ user: body }, process.env.SECRET_KEY, { expiresIn: '12h' });
+                        const token = jwt.sign({ user: body }, process.env.SECRET_KEY);
                         return res.json({ token });
                     }
                 );

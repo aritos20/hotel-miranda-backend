@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { connect, disconnect } from "../database/connection";
-import { userModel } from "../database/Models/userSchema";
 import { handleHttp } from "../utils/error.handle";
+import { userModel } from "../database/Models/userSchema";
 import bcrypt from "bcrypt";
 
 const getUser = async (req: Request, res: Response, next: NextFunction): Promise<void> => {

@@ -11,6 +11,7 @@ const bookingSchema = new Schema<Bookings>({
     special_request: String,
     room_type: String,
     room_status: Boolean,
+    price: Number,
 });
 
 export const bookingModel = mongoose.model('bookings', bookingSchema);

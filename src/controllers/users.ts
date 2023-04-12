@@ -24,7 +24,7 @@ const getUsers = async (_req: Request, res: Response, next: NextFunction): Promi
         res.json({ success: true, data: users });
     } catch(e) {
         next(e);
-        handleHttp(res, 'ERROR_GET_USERS');
+        //handleHttp(res, 'ERROR_GET_USERS');
     }
 }
 

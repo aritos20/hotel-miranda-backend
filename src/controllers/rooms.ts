@@ -23,7 +23,7 @@ const getRooms = async (_req: Request, res: Response, next: NextFunction): Promi
         res.json({ success: true, data: rooms });
     } catch(e) {
         next(e);
-        handleHttp(res, 'ERROR_GET_ROOMS');
+        //handleHttp(res, 'ERROR_GET_ROOMS');
     }
 }
 

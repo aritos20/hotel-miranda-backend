@@ -34,6 +34,7 @@ const createRandomBookings = async (bookingsNumber: number): Promise<void> => {
             special_request: faker.company.catchPhrase(),
             room_type: faker.company.catchPhraseDescriptor(),
             room_status: faker.datatype.boolean(),
+            price: faker.datatype.number({min: 100, max: 400})
         };
         bookingsArr.push(bookingObj);
     }

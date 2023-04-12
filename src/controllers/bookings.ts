@@ -11,7 +11,6 @@ const getBooking = async (req: Request, res: Response, next: NextFunction): Prom
         res.json({ success: true, data: booking });
     } catch(e) {
         next(e);
-        handleHttp(res, 'ERROR_GET_BOOKING');
     }
 }
 
@@ -23,7 +22,6 @@ const getBookings = async (_req: Request, res: Response, next: NextFunction): Pr
         res.json({ success: true, data: bookings });
     } catch(e) {
         next(e);
-        handleHttp(res, 'ERROR_GET_BOOKINGS');
     }
 }
 
@@ -35,7 +33,6 @@ const updateBooking = async (req: Request, res: Response, next: NextFunction): P
         res.json({ success: true, data: req.params.bookingid });
     } catch(e) {
         next(e);
-        handleHttp(res, 'ERROR_UPDATE_BOOKING');
     }
 }
 
@@ -50,7 +47,6 @@ const postBooking = async (req: Request, res: Response, next: NextFunction): Pro
         res.json({ success: true, data: req.body });
     } catch(e) {
         next(e);
-        handleHttp(res, 'ERROR_POST_BOOKING');
     }
 }
 
@@ -62,7 +58,6 @@ const deleteBooking = async (req: Request, res: Response, next: NextFunction): P
         res.json({ success: true, data: req.params.bookingid });
     } catch(e) {
         next(e);
-        handleHttp(res, 'ERROR_DELETE_BOOKING');
     }
 }
 

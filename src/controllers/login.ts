@@ -24,7 +24,7 @@ export const loginCtrl = async (req: Request, res: Response, next: NextFunction)
                     }
                 );
             } catch (error) {
-                return next (error);
+                return next(error);
             }
         }
     )(req, res, next);

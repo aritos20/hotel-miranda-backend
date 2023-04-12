@@ -6,9 +6,9 @@ const passport = require('passport');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+app.use(cors());
 require('./auth/auth');
 app.use(express.json());
-app.use(cors());
 
 app.use('/login', routerLogin);
 app.use('/bookings', passport.authenticate("jwt", { session: false }), routerBookings);

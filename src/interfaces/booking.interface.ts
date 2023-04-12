@@ -8,4 +8,5 @@ export interface Bookings {
     special_request: string;
     room_type: string;
     room_status: Boolean;
+    price: number;
 }
